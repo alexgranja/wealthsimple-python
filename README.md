@@ -6,55 +6,55 @@
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 
-[Features](#-features) • [Installation](#-installation) • [Quick Start](#-quick-start) • [Documentation](#-documentation) • [Examples](#-examples)
+[Features](#features) • [Installation](#installation) • [Quick Start](#quick-start) • [Documentation](#documentation) • [Examples](#examples)
 
 </div>
 
 ---
 
-## ⚠️ Important Disclaimer
+## Important Disclaimer
 
 **This is an unofficial API client** for Wealthsimple Trade. It is not affiliated with, officially maintained by, or endorsed by Wealthsimple. Use at your own risk.
 
-- ⚠️ No warranty or guarantee is provided
-- 🧪 Always test with small amounts first
-- 🔒 Keep your credentials secure
-- 📝 API may change without notice
+- No warranty or guarantee is provided
+- Always test with small amounts first
+- Keep your credentials secure
+- API may change without notice
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
-- [Features](#-features)
-- [Installation](#-installation)
-- [Quick Start](#-quick-start)
-- [Authentication](#-authentication-1)
-- [Documentation](#-documentation)
+- [Features](#features)
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Authentication](#authentication-1)
+- [Documentation](#documentation)
   - [Security Search & Quotes](#security-search--quotes)
   - [Account Management](#account-management)
   - [Stock Trading](#stock-trading)
   - [Options Trading](#options-trading)
   - [Activity & History](#activity--history)
   - [Real-Time WebSocket Subscriptions](#real-time-websocket-subscriptions)
-- [Interactive Trading Tool](#-interactive-trading-tool-1)
-- [Examples](#-examples)
-- [Advanced Usage](#-advanced-usage)
-- [API Reference](#-api-reference)
-- [Contributing](#-contributing)
-- [Legacy API](#-legacy-api)
+- [Interactive Trading Tool](#interactive-trading-tool-1)
+- [Examples](#examples)
+- [Advanced Usage](#advanced-usage)
+- [API Reference](#api-reference)
+- [Contributing](#contributing)
+- [Legacy API](#legacy-api)
 
 ---
 
-## ✨ Features
+## Features
 
-### 🔐 Authentication
+### Authentication
 
 - OAuth v2 authentication with automatic token refresh
 - Support for 2FA/OTP
 - Environment variable support for secure credential storage
 - Token expiry management and auto-refresh
 
-### 📊 Market Data
+### Market Data
 
 - Security search by ticker symbol or company name
 - Real-time quotes with bid/ask spreads
@@ -68,7 +68,7 @@
   - Account balance change alerts
   - Identity and account core updates
 
-### 💼 Account Management
+### Account Management
 
 - Retrieve all accounts (Personal, TFSA, RRSP, etc.)
 - Account balances and buying power
@@ -80,7 +80,7 @@
   - Net deposits vs. unrealised gain/loss
   - Simple return % calculations
 
-### 📈 Stock Trading
+### Stock Trading
 
 - Market orders (buy/sell)
 - Limit orders (buy/sell)
@@ -88,7 +88,7 @@
 - Good-Till-Cancelled (GTC) and Day orders
 - Custom order creation
 
-### 📉 Options Trading
+### Options Trading
 
 - Full option chain retrieval
 - Available expiry dates
@@ -98,7 +98,7 @@
 - Sell to open/close (writing covered calls)
 - Transaction fee calculation
 
-### 🎮 Interactive Trading Tool
+### Interactive Trading Tool
 
 - Command-line interface for easy trading
 - Interactive security search
@@ -108,7 +108,7 @@
 
 ---
 
-## 📦 Installation
+## Installation
 
 ### Requirements
 
@@ -170,7 +170,7 @@ The core package only requires `requests`. Optional extras:
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Basic Usage
 
@@ -208,7 +208,7 @@ order = ws.limit_buy(
 print(f"Order placed: {order['orderId']}")
 ```
 
-## 🔐 Authentication
+## Authentication
 
 ### Basic Authentication
 
@@ -240,10 +240,10 @@ ws = WealthsimpleV2(
 
 **Benefits:**
 
-- 🔒 Tokens are encrypted by the operating system
-- 🔄 Tokens persist across terminal sessions and reboots
-- 🛡️ More secure than plain text environment variables
-- 🚀 Automatic loading on subsequent runs
+- Tokens are encrypted by the operating system
+- Tokens persist across terminal sessions and reboots
+- More secure than plain text environment variables
+- Automatic loading on subsequent runs
 
 **Fallback:** If `keyring` is not installed, tokens are saved to environment variables (`WS_ACCESS_TOKEN` and `WS_REFRESH_TOKEN`) for the current session only.
 
@@ -294,7 +294,7 @@ if success:
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 ### Security Search & Quotes
 
@@ -1025,7 +1025,7 @@ For more options, see `test_sub.py --help`.
 
 ---
 
-## 🎮 Interactive Trading Tool
+## Interactive Trading Tool
 
 An interactive command-line interface is included for easy testing and trading:
 
@@ -1035,13 +1035,13 @@ python interactive_trade.py
 
 ### Features
 
-- 🔐 **Interactive Authentication**: Enter credentials securely
-- 🔍 **Security Search**: Search by ticker or browse popular stocks
-- 📊 **Real-Time Quotes**: View detailed security information
-- 📈 **Stock Trading**: Place market and limit orders
-- 📉 **Options Trading**: Browse option chains and trade options
-- 💼 **Account Selection**: Choose from your trading accounts
-- ✅ **Order Confirmation**: Review before executing
+- **Interactive Authentication**: Enter credentials securely
+- **Security Search**: Search by ticker or browse popular stocks
+- **Real-Time Quotes**: View detailed security information
+- **Stock Trading**: Place market and limit orders
+- **Options Trading**: Browse option chains and trade options
+- **Account Selection**: Choose from your trading accounts
+- **Order Confirmation**: Review before executing
 
 ### Usage
 
@@ -1056,7 +1056,7 @@ The script will guide you through:
 
 ---
 
-## 📖 Examples
+## Examples
 
 ### Example 1: Portfolio Summary
 
@@ -1237,7 +1237,7 @@ async def watch_orders():
     async with ws.subscribe() as sub:
         async for msg in sub.stream_activity_updates():
             update = msg['payload']['data']['activityFeedUpdates']
-            print(f"\n🔔 New activity detected!")
+            print(f"\nNew activity detected!")
             print(f"   Account: {update['accountId']}")
             print(f"   Activity ID: {update['activityId']}")
             print(f"   Updated: {update['updatedAt']}")
@@ -1282,7 +1282,7 @@ for edge in edges:
 
 ---
 
-## 🔧 Advanced Usage
+## Advanced Usage
 
 ### Custom GraphQL Queries
 
@@ -1346,7 +1346,7 @@ ws = WealthsimpleV2(access_token='your_token', refresh_token='your_refresh')
 
 ---
 
-## 📋 API Reference
+## API Reference
 
 ### Class: `WealthsimpleV2`
 
@@ -1470,7 +1470,7 @@ async with ws.subscribe() as sub:
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -1484,20 +1484,20 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-## 🔗 Resources
+## Resources
 
 - **API Documentation**: See `README.md` for detailed API information
 - **Wealthsimple**: [https://www.wealthsimple.com/](https://www.wealthsimple.com/)
 
 ---
 
-## 📞 Support
+## Support
 
 For questions, issues, or feature requests, please open an issue on GitHub.
 
 ---
 
-## ⚖️ Legal
+## Legal
 
 This project is not affiliated with, officially maintained by, or endorsed by Wealthsimple. All trademarks are the property of their respective owners.
 
@@ -1507,7 +1507,7 @@ Always verify orders before executing and start with small amounts when testing.
 
 ---
 
-## 📚 Legacy API
+## Legacy API
 
 The original REST API (`archive/wealthsimple.py`) is still available but uses deprecated Trade API endpoints. It is strongly recommended to migrate to the v2 GraphQL API for new projects.
 
